@@ -1,0 +1,114 @@
+html,
+html * {
+  // Chrome
+  ::-webkit-scrollbar {
+    width: 7px !important;
+    height: 7px !important;
+  }
+  ::-webkit-scrollbar-track {
+    margin: 0 0 !important;
+  }
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(130, 145, 169, 0.2) !important;
+    border-radius: 10px !important;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(130, 145, 169, 0.4) !important;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(130, 145, 169, 0.5) !important;
+  }
+
+  // FF
+  scrollbar-color: rgba(130, 145, 169, 0.2) transparent;
+  scrollbar-width: thin;
+
+  // IE
+
+  -ms-overflow-style: none;
+}
+html,
+html * {
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+  scrollbar-width: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+@for $i from 1 to 10 {
+  .space-x-#{$i} > :not([hidden]) ~ :not([hidden]) {
+    margin-left: #{$i * 4}px;
+  }
+}
+
+@for $i from 1 to 10 {
+  .space-y-#{$i} > :not([hidden]) ~ :not([hidden]) {
+    margin-top: #{$i * 4}px;
+  }
+}
+
+.divide-x > :not([hidden]) ~ :not([hidden]) {
+  border-left: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+}
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  border-top: 1px solid rgba(var(--v-border-color), var(--v-border-opacity));
+}
+
+.font-size-xs {
+  font-size: 0.688rem !important;
+}
+.font-size-sm {
+  font-size: 0.75rem !important;
+}
+.font-size-md {
+  font-size: 0.875rem !important;
+}
+.font-size-lg {
+  font-size: 1rem !important;
+}
+.font-size-xl {
+  font-size: 1.25rem !important;
+}
+.font-size-xxl {
+  font-size: 1.5rem !important;
+}
+.line-height-normal {
+  line-height: 1rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+.min-w-screen {
+  min-width: 100vw;
+}
+.scrollable-layout {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  .sl-header {
+    flex-shrink: 0;
+  }
+  .sl-body {
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  .sl-footer {
+    flex-shrink: 0;
+  }
+}

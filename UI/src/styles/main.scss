@@ -1,0 +1,112 @@
+html {
+  font-size: 16px;
+}
+
+@for $i from 1 to 11 {
+  .space-x-#{$i} > :not([hidden]) ~ :not([hidden]) {
+    margin-left: #{$i * 4}px;
+  }
+}
+
+@for $i from 1 to 11 {
+  .space-y-#{$i} > :not([hidden]) ~ :not([hidden]) {
+    margin-top: #{$i * 4}px;
+  }
+}
+.v-card.scrollable {
+  display: flex !important;
+  flex-direction: column;
+
+  .v-card-text {
+    flex-grow: 1;
+    overflow: auto;
+  }
+}
+.absolute-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.show-on-hover-wrapper {
+  position: relative;
+  .show-on-hover {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translateX(-10px);
+  }
+  &:hover {
+    .show-on-hover {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+  }
+}
+
+.scrollable-collapse {
+  .v-expansion-panel-text__wrapper {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}
+
+.w-max-content {
+  width: max-content;
+}
+
+html,
+html * {
+  // Chrome
+  ::-webkit-scrollbar {
+    width: 7px !important;
+    height: 7px !important;
+  }
+  ::-webkit-scrollbar-track {
+    margin: 0 0 !important;
+  }
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 10px !important;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  // FF
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  scrollbar-width: thin;
+
+  // IE
+
+  -ms-overflow-style: none;
+}
+.dialog-container:last-of-type {
+  & > .v-row {
+    transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    border-radius: 4px;
+    outline: 2px solid rgba(var(--v-theme-info), 0);
+    animation: blink 0.8s;
+    animation-delay: 0.5s;
+    animation-iteration-count: 3;
+  }
+}
+
+@keyframes blink {
+  50% {
+    outline: 2px solid rgba(var(--v-theme-info), 1);
+  }
+}
+
+.video-preview {
+  width: 100%;
+  &::cue {
+    color: red;
+  }
+}
